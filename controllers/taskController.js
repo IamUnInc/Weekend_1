@@ -1,10 +1,44 @@
-var myApp = angular.module("myApp", []);
+myApp.controller("empController", ["$scope", function($scope) {
+  console.log("emp controller working!");
+
+  $scope.empFirstName = "";
+  $scope.empLastName = "";
+  $scope.empIdNumber = "";
+  $scope.empJobTitle = "";
+  $scope.empSalary = "";
+  $scope.emps = [];
+  $scope.totalSal = "";
+  totalSalary = 0;
+  second = 0;
+
+  $scope.saveEmp = function() {
+    person = {
+      firstName:$scope.empFirstName,
+      lastName:$scope.empLastName,
+      idNumber:$scope.empIdNumber,
+      jobTitle:$scope.empJobTitle,
+      salary:$scope.empSalary
+    }
+  $scope.emps.push(person);
+  console.log($scope.emps);
+  int = parseInt($scope.empSalary)
+    second = parseInt(int)
+ console.log(second);
+  totalSalary += second;
+
+  $scope.totalSal = totalSalary;
+
+
+  }
+
+}]);
 
 
 
 
-// $(document).ready(function() {
-//     var array = [];
+
+
+// var array = [];
 //     var monthSal = 0;
 //     var salTol = 0;
 //     var intSal = 0;
@@ -54,7 +88,3 @@ var myApp = angular.module("myApp", []);
 //       empInfo.employeejobtitle + ' ' + empInfo.employeesalary +
 //       " Salary Total Per Month: $" + salTol + '</p>');
 //     };
-//
-//
-//
-// });
